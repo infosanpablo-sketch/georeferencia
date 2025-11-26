@@ -1,52 +1,42 @@
 {% extends "base.html" %}
-{% block title %}Historial mensual{% endblock %}
+{% block title %}Historial{% endblock %}
 {% block body %}
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-10">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="text-primary">Historial de asistencia</h3>
-        <a href="{{ url_for('admin') }}" class="btn btn-outline-secondary">Volver</a>
-      </div>
-
-      <form action="{{ url_for('admin_historial') }}" method="get" class="row g-2 mb-3">
-        <div class="col-8">
-          <select name="mes" class="form-select">
-            {% for m in meses %}
-              <option value="{{ m }}" {% if m == mes_seleccionado %}selected{% endif %}>{{ m }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="col-4">
-          <button class="btn btn-primary w-100">Ver historial</button>
-        </div>
-      </form>
-
-      <a href="{{ url_for('admin_reporte', mes=mes_seleccionado) }}" class="btn btn-success mb-3">Descargar reporte (CSV)</a>
-
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead class="table-light">
-            <tr><th>RUT</th><th>Nombre</th><th>Dirección</th><th>Fecha/Hora</th><th>Tipo</th></tr>
-          </thead>
-          <tbody>
-            {% for r in filas %}
-              <tr>
-                <td>{{ r.rut }}</td>
-                <td>{{ r.nombre }}</td>
-                <td>{{ r.address }}</td>
-                <td>{{ r.timestamp }}</td>
-                <td>{{ r.tipo|capitalize }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      {% if filas|length == 0 %}
-        <div class="alert alert-warning mt-3">No hay marcajes para este mes.</div>
-      {% endif %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Historial de Asistencia</h3>
+    <div>
+      <a href="{{ url_for('admin') }}" class="btn btn-outline-secondary">Volver</a>
     </div>
   </div>
+
+  <form method="get" class="row g-2 mb-3">
+    <div class="col-8">
+      <select name="mes" class="form-select">
+        {% for m in meses %}<option value="{{ m }}" {% if m==mes_seleccionado %}selected{% endif %}>{{ m }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-4"><button class="btn btn-primary w-100">Ver</button></div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead><tr><th>RUT</th><th>Nombre</th><th>Dirección</th><th>Fecha Local</th><th>Tipo</th></tr></thead>
+      <tbody>
+        {% for r in filas %}
+          <tr>
+            <td>{{ r.rut }}</td>
+            <td>{{ r.nombre }}</td>
+            <td>{{ r.address }}</td>
+            <td>{{ r.display_ts }}</td>
+            <td>{{ r.tipo }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% if filas|length == 0 %}
+    <div class="alert alert-warning mt-3">No hay marcajes para este mes.</div>
+  {% endif %}
 </div>
 {% endblock %}
