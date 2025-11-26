@@ -5,6 +5,15 @@ from io import BytesIO
 
 from flask import (Flask, g, redirect, render_template, request, send_file,
                    session, url_for, flash)
+
+import inspect, sys
+print(flask.__file__)      # muestra de dónde se importa flask
+from flask import Flask
+print(Flask)               # tipo / repr de la clase Flask
+app = Flask(__name__)
+print(type(app))
+print('before_first_request' in dir(app))
+
 from geopy.geocoders import Nominatim
 import folium
 from werkzeug.security import check_password_hash, generate_password_hash
