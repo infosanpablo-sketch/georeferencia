@@ -156,9 +156,9 @@ def setup_app():
     with app.app_context():
         init_db()
 
-@app.route('/')
-def index():
-    return "OK"
+#@app.route('/')
+#def index():
+    #return "OK"
 
 if __name__ == '__main__':
     setup_app()
