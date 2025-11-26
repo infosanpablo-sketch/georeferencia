@@ -143,30 +143,30 @@ def set_admin_password(username, new_password):
 # --- Routes ---
 
 # (archivo mínimo de ejemplo con el parche aplicado)
-import os
-from flask import Flask
+#import os
+#from flask import Flask
 
-app = Flask(__name__)
+#app = Flask(__name__)
 
-def init_db():
+#def init_db():
     # tu inicialización (crea tablas si no existen)
-    pass
+    #pass
 
-def setup_app():
-    with app.app_context():
-        init_db()
+#def setup_app():
+    #with app.app_context():
+        #init_db()
 
 #@app.route('/')
 #def index():
     #return "OK"
 
-if __name__ == '__main__':
-    setup_app()
-    app.run(debug=True)
+#if __name__ == '__main__':
+    #setup_app()
+    #app.run(debug=True)
 
-# @app.before_first_request 
-#def setup():
-    #init_db()
+@app.before_first_request 
+def setup():
+    init_db()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
