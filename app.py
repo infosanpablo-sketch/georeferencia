@@ -24,6 +24,15 @@ GEOCODER = Nominatim(user_agent=GEOPY_USER_AGENT, timeout=10)
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
+print("flask.__file__:", flask.__file__)
+from flask import Flask
+print("Flask class:", Flask)
+
+print("type(app):", type(app))
+print("has before_first_request?:", hasattr(app, 'before_first_request'))
+print("dir(app) contains before_first_request?:", 'before_first_request' in dir(app))
+PY
+
 # --- DB helpers ---
 def get_db():
     db = getattr(g, '_database', None)
