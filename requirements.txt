@@ -1,0 +1,6 @@
+Flask
+geopy
+folium
+openpyxl
+backports.zoneinfo ; python_version < "3.9"
+gunicorn
