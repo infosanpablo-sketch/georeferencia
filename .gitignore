@@ -1,6 +1,0 @@
-__pycache__/
-*.pyc
-*.zip
-venv/
-asistencia.db
-.env
