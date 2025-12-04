@@ -24,8 +24,8 @@ GEOCODER = Nominatim(user_agent=GEOPY_USER_AGENT, timeout=10)
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
-print("flask.__file__:", flask.__file__)
-from Flask import Flask
+print("Flask.__file__:", Flask.__file__)
+# --- from flask import Flask ---
 print("Flask class:", Flask)
 
 print("type(app):", type(app))
