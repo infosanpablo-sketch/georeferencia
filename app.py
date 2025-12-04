@@ -3,7 +3,7 @@ import sqlite3
 from datetime import datetime, timezone
 from io import BytesIO
 
-from Flask import (Flask, g, redirect, render_template, request, send_file,
+from flask import (Flask, g, redirect, render_template, request, send_file,
                    session, url_for, flash)
 from geopy.geocoders import Nominatim
 import folium
@@ -24,7 +24,7 @@ GEOCODER = Nominatim(user_agent=GEOPY_USER_AGENT, timeout=10)
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
-print("Flask.__file__:", Flask.__file__)
+print("flask.__file__:", flask.__file__)
 from Flask import Flask
 print("Flask class:", Flask)
 
