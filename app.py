@@ -33,7 +33,7 @@ app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key')
 print("type(app):", type(app))
 print("has before_first_request?:", hasattr(app, 'before_first_request'))
 print("dir(app) contains before_first_request?:", 'before_first_request' in dir(app))
-PY
+#PY
 
 # --- DB helpers ---
 def get_db():
