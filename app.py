@@ -21,11 +21,13 @@ USERS_CSV = os.path.join(BASE_DIR, 'users.csv')  # optional bootstrap
 GEOPY_USER_AGENT = os.environ.get('GEOPY_USER_AGENT', 'asistencia_app')
 GEOCODER = Nominatim(user_agent=GEOPY_USER_AGENT, timeout=10)
 
+from flask import Flask
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key')
 
+from flask import Flask
 print("Flask.__file__:", Flask.__file__)
-# --- from flask import Flask ---
+
 print("Flask class:", Flask)
 
 print("type(app):", type(app))
