@@ -151,9 +151,10 @@ def set_admin_password(username, new_password):
     db.commit()
 
 # --- Routes ---
-@app.before_first_request
-def setup():
-    init_db()
+
+#@app.before_first_request
+#def setup():
+#    init_db()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
