@@ -28,7 +28,7 @@ app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key')
 #from flask import Flask
 #print("Flask.__file__:", Flask.__file__)
 
-#print("Flask class:", Flask)
+print("Flask class:", Flask)
 
 print("type(app):", type(app))
 print("has before_first_request?:", hasattr(app, 'before_first_request'))
